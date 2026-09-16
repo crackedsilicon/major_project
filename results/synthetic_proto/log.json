@@ -1,0 +1,28 @@
+{
+  "rounds": [
+    {
+      "round": 0.33424239262736916,
+      "global_accuracy": 0.374,
+      "precision_macro": 0.41523597175771093,
+      "recall_macro": 0.33424239262736916,
+      "f1_macro": 0.2241920880455047,
+      "prototype_accuracy": 0.372,
+      "communication_bytes": 113980,
+      "metadata_summary": {
+        "n_clients": 5
+      }
+    },
+    {
+      "round": 0.33310311250217356,
+      "global_accuracy": 0.373,
+      "precision_macro": 0.575577599460837,
+      "recall_macro": 0.33310311250217356,
+      "f1_macro": 0.21792673760695444,
+      "prototype_accuracy": 0.372,
+      "communication_bytes": 113980,
+      "metadata_summary": {
+        "n_clients": 5
+      }
+    }
+  ]
+}

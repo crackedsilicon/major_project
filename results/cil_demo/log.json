@@ -1,0 +1,70 @@
+{
+  "rounds": [
+    {
+      "round": 0,
+      "global_accuracy": 0.27,
+      "precision_macro": 0.09000000000000001,
+      "recall_macro": 0.3333333333333333,
+      "f1_macro": 0.14173228346456693,
+      "prototype_accuracy": 0.343,
+      "communication_bytes": 113980,
+      "aggregation_weights": [
+        0.35518619036064725,
+        0.12697573036775564,
+        0.09489874056942067,
+        0.3300788679574328,
+        0.09286047074474357
+      ],
+      "class_stage": [
+        0
+      ],
+      "class_accuracy": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 1.0
+      },
+      "stage_metrics": {
+        "old_accuracy": null,
+        "new_accuracy": 0.0,
+        "seen_accuracy": 0.0,
+        "forgetting": 0.0
+      },
+      "metadata_summary": {
+        "n_clients": 5
+      }
+    },
+    {
+      "round": 1,
+      "global_accuracy": 0.375,
+      "precision_macro": 0.125,
+      "recall_macro": 0.3333333333333333,
+      "f1_macro": 0.1818181818181818,
+      "prototype_accuracy": 0.316,
+      "communication_bytes": 113980,
+      "aggregation_weights": [
+        0.07338215116767008,
+        0.3597129713394258,
+        0.17583767591281163,
+        0.05689982769291274,
+        0.33416737388717976
+      ],
+      "class_stage": [
+        1
+      ],
+      "class_accuracy": {
+        "0": 0.0,
+        "1": 1.0,
+        "2": 0.0
+      },
+      "stage_metrics": {
+        "old_accuracy": 0.0,
+        "new_accuracy": 1.0,
+        "seen_accuracy": 0.5136986301369864,
+        "forgetting": 0.0
+      },
+      "metadata_summary": {
+        "n_clients": 5
+      }
+    }
+  ]
+}

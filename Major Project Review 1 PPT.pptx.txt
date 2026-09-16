@@ -1,0 +1,247 @@
+   ADAPTIVE FEDERATED AGGREGATION FOR INCREMENTAL IOT INTRUSION DETECTION SYSTEMS
+
+Dayananda Sagar College of Engineering
+Computer Science and Engineering
+Date : 12 - 08 - 2026
+   
+
+    
+
+
+
+
+
+ABSTRACT
+The increasing adoption of Internet of Things (IoT) devices has significantly expanded the attack surface for cyber threats. Traditional Intrusion Detection Systems (IDS) rely on centralized training and frequent retraining, leading to privacy concerns and poor adaptability to emerging attacks.
+This project is based on the IEEE TNSM 2026 paper "A Federated and Incremental Network Intrusion Detection System for IoT Emerging Threats." The base system integrates Federated Learning and Class Incremental Learning to enable privacy-preserving collaborative training while continuously learning new attack classes. The proposed work further enhances the system by introducing an Adaptive Federated Aggregation strategy to improve model aggregation under heterogeneous client environments, aiming to achieve better intrusion detection performance, scalability, and robustness in distributed IoT networks.
+
+
+LITERATURE SURVEY
+Author
+Year
+Methodology
+Findings
+Limitations
+Carillo et al. (11436100.pdf)
+2026
+Proposes a Federated Class Incremental Learning (FCIL) framework combining Federated Learning (FedAvg, FedProx, FedDyn) with CIL methods (e.g., MEMENTO+, iCaRL+) for early-stage IoT attack detection.
+Effectively retains prior knowledge without centralized data sharing. MEMENTO+ with FedProx achieves the best performance trade-off.
+Struggles with incorporating new client-specific attacks compared to training from scratch. Detection performance drops significantly in cross-network deployments.
+Issa et al.
+2026
+Multi-temporal device clustering in Federated Learning (FL) with a post-processing module for pseudo-label filtering.
+Achieves superior accuracy, faster convergence, and reduced false alarms on imbalanced datasets.
+The data-driven clustering and pseudo-labeling mechanisms may introduce overhead for highly resource-constrained devices.
+
+Thi & Gurusamy
+2026
+Multi-dimensional cross-granularity (MDCG) semi-supervised learning using optimal transport theory and tensor encoding.
+Exceeds state-of-the-art AUC-ROC (>0.948) using only 3% of labeled validation samples.
+Highly dependent on the structural tensor encoding; still requires a small, high-quality labeled validation set.
+Musthafa et al.
+2025
+Optimized ensemble deep learning (stacked LSTM + ANOVA) with dual-stage model compression (pruning, quantization) deployed on Raspberry Pi.
+Maintains 97.3% accuracy under dynamic traffic loads, delays, and overlapping attacks.
+Computationally intensive at peak loads (CPU usage reaches 111.8%), limiting deployment on devices weaker than a Raspberry Pi.
+Zhao et al.
+2025
+DTF-VPP: Dynamic detection combining PCA feature filtering with a transformer-based model and dynamic loss-weighting.
+Outperforms conventional models in accuracy and F1-score for high-frequency dynamic attacks.
+Domain-specific focus on Virtual Power Plant (VPP) cloud-edge architectures limits generalizability.
+4
+
+Wang et al.
+2026
+Domain adaptive algorithm using causal embedding autoencoder (AEC), graph attention network (GAT), and joint domain adversary with focal loss.
+Significantly improves detection in data-scarce IoT environments by transferring traditional network knowledge.
+Relies heavily on the availability and relevance of traditional network intrusion data for cross-domain knowledge transfer.
+Pei et al.
+2025
+Multi-edge collaborative framework featuring delay-aware offloading and a Node-Level Attention-Based Auto-Encoder Graph Convolutional Network (NAAE-GCN).
+Achieves new state-of-the-art detection performance for evolving network attacks in Compute First Networking.
+Susceptible to varying channel conditions and the latency constraints of AI task offloading between edge and cloud.
+Jay et al.
+2025
+Intelligent Intrusion Detection Mechanism (IIDM) combining statistical, ensemble unsupervised, and model-based learning using substation Single Line Diagrams.
+Provides high-accuracy real-time detection of data manipulation, MITM, and DoS attacks in GOOSE packets.
+Strictly domain-specific; designed exclusively for digital substations and IEC-61850 protocols.
+5
+
+Zhao et al.
+2026
+Distributed IDS via multi-path multi-hop split learning, partitioning deep learning models across multiple physical edge nodes.
+Reduces training time by up to 44.4% compared to centralized IDS while preserving detection performance and data privacy.
+Requires stable multi-hop communication networks; performance may degrade if intermediary physical nodes fail.
+Liu et al.
+2025
+DyGRA-Edge: Dynamic gradient-regulated attention network with anisotropic diffusion convolution and sparse entropy attention.
+Achieves >98.5% accuracy and 63–98 ms inference latency with only 5.3% CPU utilization on Raspberry Pi.
+Tailored to process grayscale image representations of traffic, which may omit specific packet-level header nuances.
+Almalkawi et al.
+2026
+SecIDS-CNN-WF: Trust-aware framework using semantic HWKS preprocessing, attention-enhanced CNN, and a zero-delay trust-scoring module.
+Achieves 99.96% accuracy and 0.20 ms latency with a highly compact (0.15 MB) model footprint.
+Exclusively designed and optimized for IEEE 802.11 (Wi-Fi) traffic analysis.
+Wang et al.
+2025
+Tied block convolution lightweight neural network utilizing self-knowledge distillation.
+Exceeds 99% multiclassification accuracy while requiring minimal computational resources and storage.
+The reliance on metaheuristic optimization for feature reduction can be computationally expensive during the training phase.
+6
+
+Wu et al.
+2025
+TRACER: Attack-aware divide-and-conquer transformer featuring learnable queries and a hierarchical decoder.
+Delivers 98.8% anomaly detection accuracy without requiring data balancing samplers or payload content data.
+Classification heavily depends on the model's ability to optimize category-specific learnable queries for minority classes.
+Kumar et al.
+2026
+Deep learning framework combining WOA, DTO, and ALO metaheuristic algorithms for feature selection alongside LSTM and XGBoost.
+Demonstrates high detection performance and reduced false alarms across multiple benchmark datasets.
+Executing three distinct nature-inspired optimization algorithms for feature selection introduces significant computational overhead.
+Yin et al.
+2026
+Multi-stage few-shot class-incremental learning utilizing prototypical networks and supervised contrastive learning.
+Outperforms baseline models when detecting emerging, novel attacks using only a few samples.
+Incremental fine-tuning stages are necessary to prevent catastrophic forgetting, complicating the continuous deployment pipeline.
+7
+
+PROBLEM STATEMENT
+   Existing IoT Intrusion Detection Systems suffer from centralized data dependency, privacy issues, and limited adaptability to newly emerging cyber-attacks. Although the base paper addresses these issues using Federated Class Incremental Learning, the aggregation process still relies on predefined federated aggregation algorithms that may not perform optimally under heterogeneous client data distributions. Therefore, there is a need for a more adaptive aggregation mechanism to improve global model performance while maintaining privacy and continuous learning. 
+
+OBJECTIVES
+Study the Federated Class Incremental Learning framework proposed in the base paper.
+Design an Adaptive Federated Aggregation strategy for heterogeneous IoT environments.
+Improve intrusion detection performance under non-IID client data.
+Preserve user privacy by avoiding raw data sharing.
+Compare the proposed model with the base paper using standard evaluation metrics.
+
+9
+
+EXISTING SYSTEM
+Multiple IoT clients locally train an Intrusion Detection System using Class Incremental Learning.
+Local model parameters are shared with a Federated Server.
+The server aggregates local models using FedAvg, FedProx, or FedDyn.
+The updated global model is redistributed to all clients.
+The system continuously learns new attack classes while preserving previously learned knowledge.
+
+
+
+DRAWBACKS OF EXISTING SYSTEM
+Uses predefined aggregation algorithms (FedAvg, FedProx, FedDyn).
+Performance depends on the selected aggregation method.
+Client heterogeneity may reduce global model performance.
+Frequent synchronization increases communication overhead.
+Scope exists for improving aggregation efficiency and scalability.
+
+11
+
+Existing System
+12
+
+PROPOSED SYSTEM
+The proposed system enhances the base paper by introducing an Adaptive Federated Aggregation mechanism. Instead of using a fixed aggregation algorithm, the federated server dynamically adapts the aggregation strategy based on client characteristics, improving learning efficiency under heterogeneous data distributions. 
+The proposed system enhances the base paper by introducing an Adaptive Federated Aggregation mechanism. Instead of using a fixed aggregation algorithm, the federated server dynamically adapts the aggregation strategy based on client characteristics, improving learning efficiency under heterogeneous data distributions. 
+Introduce an Adaptive Federated Aggregation strategy.
+Improve global model learning for heterogeneous (non-IID) client data.
+Reduce the impact of client imbalance during federated training.
+
+
+ADVANTAGES OF PROPOSED SYSTEM
+Better learning efficiency.
+Improved scalability.
+Better adaptation to distributed IoT environments.
+Higher robustness against evolving cyber threats.
+Enhanced overall intrusion detection performance.
+
+14
+
+Proposed System
+15
+
+EXPECTED OUTPUT
+Develop an enhanced Federated Class Incremental Learning based IoT Intrusion Detection System.
+Successfully integrate the Adaptive Federated Aggregation mechanism into the existing framework.
+Improve global model performance under heterogeneous client environments.
+Preserve privacy without sharing raw network traffic.
+Continuously detect newly emerging attacks while retaining previously learned attack knowledge.
+Evaluate the proposed model using TON_IoT, IoT-NID, and Edge-IIoTset datasets with Accuracy, Precision, Recall, F1-Score, and Communication Overhead.
+
+
+CONCLUSION
+This project extends the IEEE TNSM 2026 base paper by introducing an Adaptive Federated Aggregation strategy into the existing Federated Class Incremental Learning framework. The proposed enhancement aims to improve model aggregation under heterogeneous client environments, resulting in better learning efficiency, scalability, and intrusion detection performance while preserving user privacy. 
+
+FUTURE SCOPE
+Deploy the framework in real-world IoT environments.
+Optimize adaptive aggregation for large-scale federated networks.
+Reduce communication overhead further.
+Detect zero-day attacks more efficiently.
+Develop lightweight models for resource-constrained IoT devices.
+
+18
+
+REFERENCES
+[1] Base Paper: Carillo et al., "Federated Class Incremental Learning for IoT Intrusion Detection," IEEE Transactions on Network and Service Management (TNSM), 2026.
+[2] Issa et al., "Multi-Temporal Device Clustering and Pseudo-Label Filtering in Federated Learning," 2026.
+[3] Thi & Gurusamy, "Multi-Dimensional Cross-Granularity Semi-Supervised Learning Using Optimal Transport Theory," 2026.
+[4] Yin et al., "Multi-Stage Few-Shot Class-Incremental Learning Utilizing Prototypical Networks," 2026.
+[5] Zhao et al., "Distributed IDS via Multi-Path Multi-Hop Split Learning," 2026.
+[6] Wang et al., "Domain Adaptive Algorithm Using Causal Embedding Autoencoder and Graph Attention Network," 2026.
+[7] Almalkawi et al., "SecIDS-CNN-WF: Trust-Aware Framework for IEEE 802.11 Traffic Analysis," 2026.
+
+
+
+
+
+[8] Kumar et al., "Deep Learning Framework Combining Metaheuristic Algorithms for Feature Selection," 2026.
+[9] Musthafa et al., "Optimized Ensemble Deep Learning with Dual-Stage Model Compression for IoT," 2025.
+[10] Zhao et al., "DTF-VPP: Dynamic Detection Combining PCA Feature Filtering with Transformer Models," 2025.
+[11] Pei et al., "Multi-Edge Collaborative Framework Featuring NAAE-GCN for Compute First Networking," 2025.
+[12] Jay et al., "Intelligent Intrusion Detection Mechanism Using Substation Single Line Diagrams," 2025.
+[13] Liu et al., "DyGRA-Edge: Dynamic Gradient-Regulated Attention Network for Edge Devices," 2025.
+[14] Wang et al., "Tied Block Convolution Lightweight Neural Network (TBCLNN) Utilizing Self-Knowledge Distillation," 2025.
+[15] Wu et al., "TRACER: Attack-Aware Divide-and-Conquer Transformer with Hierarchical Decoding," 2025
+
+20
+
+CURRENT IMPLEMENTATION STATUS AND PRELIMINARY RESULTS
+
+Implemented:
+- Centralized federated-learning simulation with multiple IoT clients and a server.
+- Client-side local training with rehearsal memory, knowledge distillation, and prototype extraction.
+- Adaptive aggregation using client data size, validation performance, and update recency.
+- FedAvg, data-weighted aggregation, and FedProx comparison modes.
+- Reproducible random seeds, held-out validation data, non-IID-ready client partitions, and optional class-incremental stages.
+- Per-round accuracy, macro Precision, Recall, F1-score, prototype accuracy, aggregation weights, and communication-size estimates.
+- TON-IoT preprocessing, synthetic experiments, comparison plots, and a repeatable CIL demonstration.
+
+Preliminary same-seed synthetic comparison (5 clients, 3 rounds, 1 local epoch):
+
+Strategy             Accuracy       Macro-F1       Communication/round
+Adaptive             0.3770         0.1959         113,980 bytes
+FedAvg               0.3490         0.2486         113,980 bytes
+Weighted             0.3490         0.2486         113,980 bytes
+FedProx              0.3470         0.2494         113,980 bytes
+
+Interpretation:
+Adaptive produced the highest accuracy in this preliminary run, but its macro-F1 was lower. Accuracy alone is therefore insufficient, especially for imbalanced intrusion-detection classes. More seeds, longer training, and per-class evaluation are required before claiming overall improvement.
+
+Two-seed validation (2 rounds, 1 local epoch):
+Adaptive: mean accuracy 0.3665 +/- 0.0085; mean macro-F1 0.2106 +/- 0.0288
+FedAvg: mean accuracy 0.3705 +/- 0.0045; mean macro-F1 0.2026 +/- 0.0207
+Weighted: mean accuracy 0.3705 +/- 0.0045; mean macro-F1 0.2026 +/- 0.0207
+FedProx: mean accuracy 0.3740 +/- 0.0010; mean macro-F1 0.2007 +/- 0.0189
+
+The validation run shows Adaptive has the best mean macro-F1, while FedProx has the best mean accuracy. These results are preliminary and require more seeds and longer training.
+
+Not yet implemented:
+- Full paper-faithful MEMENTO+, iCaRL+, and FedDyn algorithms.
+- Genuine old/new task evaluation with forgetting and backward-transfer metrics.
+- Client dropout, noisy metadata, malicious-client robustness, and secure aggregation.
+- Actual network communication and serialized compression benchmarking.
+- Live IoT deployment, packet-capture inference, differential privacy, and zero-day detection.
+
+Demonstration command:
+python scripts/run_cil_demo.py
+
+The demonstration exposes class 0 in the first round and class 1 in the second round, retains client rehearsal memory, logs adaptive weights, and writes results to results/cil_demo/log.json.

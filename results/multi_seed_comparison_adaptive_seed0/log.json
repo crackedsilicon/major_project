@@ -1,0 +1,82 @@
+{
+  "rounds": [
+    {
+      "round": 0,
+      "global_accuracy": 0.375,
+      "precision_macro": 0.125,
+      "recall_macro": 0.3333333333333333,
+      "f1_macro": 0.1818181818181818,
+      "prototype_accuracy": 0.353,
+      "communication_bytes": 113980,
+      "aggregation_weights": [
+        0.168067760051316,
+        0.20119573256956286,
+        0.21792482678590336,
+        0.2091215588259786,
+        0.20369012176723922
+      ],
+      "class_stage": null,
+      "class_accuracy": {
+        "0": 0.0,
+        "1": 1.0,
+        "2": 0.0
+      },
+      "stage_metrics": null,
+      "metadata_summary": {
+        "n_clients": 5
+      }
+    },
+    {
+      "round": 1,
+      "global_accuracy": 0.375,
+      "precision_macro": 0.125,
+      "recall_macro": 0.3333333333333333,
+      "f1_macro": 0.1818181818181818,
+      "prototype_accuracy": 0.354,
+      "communication_bytes": 113980,
+      "aggregation_weights": [
+        0.16794533703899925,
+        0.21349693465110225,
+        0.20533656005426593,
+        0.21082625794669718,
+        0.20239491030893547
+      ],
+      "class_stage": null,
+      "class_accuracy": {
+        "0": 0.0,
+        "1": 1.0,
+        "2": 0.0
+      },
+      "stage_metrics": null,
+      "metadata_summary": {
+        "n_clients": 5
+      }
+    },
+    {
+      "round": 2,
+      "global_accuracy": 0.375,
+      "precision_macro": 0.125,
+      "recall_macro": 0.3333333333333333,
+      "f1_macro": 0.1818181818181818,
+      "prototype_accuracy": 0.355,
+      "communication_bytes": 113980,
+      "aggregation_weights": [
+        0.16842231299501226,
+        0.20976691205136558,
+        0.19525088170113242,
+        0.21728842840240828,
+        0.20927146485008147
+      ],
+      "class_stage": null,
+      "class_accuracy": {
+        "0": 0.0,
+        "1": 1.0,
+        "2": 0.0
+      },
+      "stage_metrics": null,
+      "metadata_summary": {
+        "n_clients": 5
+      }
+    }
+  ]
+}

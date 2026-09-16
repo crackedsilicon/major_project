@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adaptive Federated IoT IDS — Neural Threat Intelligence Dashboard</title>
+  <meta name="description" content="Real-time Intrusion Detection System powered by Adaptive Federated Class-Incremental Learning for IoT Networks">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- ═══════════════ NAVIGATION ═══════════════ -->
+  <nav class="top-nav" id="topNav">
+    <div class="nav-brand">
+      <div class="nav-logo">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <path d="M16 2L4 8v8c0 7.18 5.12 13.89 12 16 6.88-2.11 12-8.82 12-16V8L16 2z" fill="url(#shieldGrad)" opacity="0.9"/>
+          <path d="M16 6l-8 4v5.6c0 5.02 3.58 9.72 8 11.2 4.42-1.48 8-6.18 8-11.2V10L16 6z" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="0.8"/>
+          <circle cx="16" cy="15" r="3.5" fill="none" stroke="#60a5fa" stroke-width="1.5"/>
+          <circle cx="16" cy="15" r="1.2" fill="#60a5fa"/>
+          <line x1="16" y1="11" x2="16" y2="8" stroke="#60a5fa" stroke-width="1" opacity="0.6"/>
+          <line x1="19.5" y1="15" x2="22" y2="15" stroke="#60a5fa" stroke-width="1" opacity="0.6"/>
+          <line x1="12.5" y1="15" x2="10" y2="15" stroke="#60a5fa" stroke-width="1" opacity="0.6"/>
+          <line x1="16" y1="19" x2="16" y2="22" stroke="#60a5fa" stroke-width="1" opacity="0.6"/>
+          <defs><linearGradient id="shieldGrad" x1="4" y1="2" x2="28" y2="26"><stop offset="0%" stop-color="#1e40af"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs>
+        </svg>
+      </div>
+      <span class="nav-title">FCIL-IDS</span>
+    </div>
+    <div class="nav-links">
+      <a href="#hero" class="nav-link active" data-section="hero">Overview</a>
+      <a href="#architecture" class="nav-link" data-section="architecture">Architecture</a>
+      <a href="#upload" class="nav-link" data-section="upload">Analyze</a>
+      <a href="#live" class="nav-link" data-section="live">Live Stream</a>
+      <a href="#training" class="nav-link" data-section="training">Training</a>
+      <a href="#comparison" class="nav-link" data-section="comparison">Comparison</a>
+    </div>
+    <div class="nav-status">
+      <div class="status-dot" id="globalStatusDot"></div>
+      <span class="status-label" id="globalStatusLabel">Connecting...</span>
+    </div>
+  </nav>
+
+  <!-- ═══════════════ HERO SECTION ═══════════════ -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-anim"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Adaptive Federated Class-Incremental Learning</div>
+      <h1 class="hero-title">
+        IoT Network<br>
+        <span class="gradient-text">Intrusion Detection System</span>
+      </h1>
+      <p class="hero-subtitle">
+        Privacy-preserving federated learning across edge IoT gateways with adaptive aggregation,
+        class-incremental threat detection, and real-time neural traffic classification.
+      </p>
+      <div class="hero-stats" id="heroStats">
+        <div class="hero-stat">
+          <span class="hero-stat-value" id="heroModelParams">—</span>
+          <span class="hero-stat-label">Model Parameters</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value" id="heroStrategies">4</span>
+          <span class="hero-stat-label">Aggregation Strategies</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value" id="heroExperiments">—</span>
+          <span class="hero-stat-label">Experiments Logged</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value">3</span>
+          <span class="hero-stat-label">CIL Methods</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#upload" class="btn btn-hero-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Upload & Analyze Network Data
+        </a>
+        <a href="#live" class="btn btn-hero-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          Watch Live Detection
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-terminal glass-card">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          </div>
+          <span class="terminal-title">IDS Neural Classifier — Live Output</span>
+        </div>
+        <div class="terminal-body" id="heroTerminal">
+          <div class="terminal-line"><span class="t-prompt">$</span> <span class="t-cmd">python web/server.py --port 8501</span></div>
+          <div class="terminal-line t-info">═══════════════════════════════════════════════</div>
+          <div class="terminal-line t-info">  Adaptive Federated IoT IDS — Dashboard</div>
+          <div class="terminal-line t-info">═══════════════════════════════════════════════</div>
+          <div class="terminal-line"><span class="t-label">Model:</span> SimpleNet (MLP 20→64→64→3)</div>
+          <div class="terminal-line"><span class="t-label">Status:</span> <span class="t-ok">● ONLINE</span></div>
+          <div class="terminal-line t-dim">Awaiting network telemetry stream...</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ARCHITECTURE SECTION ═══════════════ -->
+  <section class="section" id="architecture">
+    <div class="section-header-block">
+      <span class="section-tag">System Design</span>
+      <h2 class="section-title">Federated Learning Architecture</h2>
+      <p class="section-desc">Decentralized privacy-preserving training across IoT edge gateways with adaptive model aggregation</p>
+    </div>
+
+    <div class="arch-container">
+      <!-- Central Server -->
+      <div class="arch-server glass-card">
+        <div class="arch-node-icon server-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="20" height="8" rx="2"/>
+            <rect x="2" y="14" width="20" height="8" rx="2"/>
+            <circle cx="6" cy="6" r="1" fill="currentColor"/>
+            <circle cx="6" cy="18" r="1" fill="currentColor"/>
+          </svg>
+        </div>
+        <h3>Central Aggregation Server</h3>
+        <div class="arch-features">
+          <div class="arch-feature"><span class="arch-feat-dot adaptive"></span>Adaptive Weighted Aggregation</div>
+          <div class="arch-feature"><span class="arch-feat-dot"></span>FedAvg / FedProx Baselines</div>
+          <div class="arch-feature"><span class="arch-feat-dot"></span>Global Model Checkpoint</div>
+          <div class="arch-feature"><span class="arch-feat-dot"></span>Prototype Aggregation</div>
+        </div>
+        <div class="arch-formula">
+          <code>W<sub>global</sub> = Σ α<sub>i</sub> · W<sub>local,i</sub></code>
+          <span class="formula-desc">α = f(data_size, val_score, staleness)</span>
+        </div>
+      </div>
+
+      <!-- Connection Lines (CSS animated) -->
+      <div class="arch-connections">
+        <div class="arch-line line-1"><div class="arch-pulse"></div></div>
+        <div class="arch-line line-2"><div class="arch-pulse delay-1"></div></div>
+        <div class="arch-line line-3"><div class="arch-pulse delay-2"></div></div>
+      </div>
+
+      <!-- Edge Clients -->
+      <div class="arch-clients">
+        <div class="arch-client glass-card" id="archClient0">
+          <div class="arch-node-icon client-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="4" y="4" width="16" height="12" rx="2"/><line x1="8" y1="20" x2="16" y2="20"/>
+              <line x1="12" y1="16" x2="12" y2="20"/>
+            </svg>
+          </div>
+          <h4>Edge Gateway 1</h4>
+          <p>Local training + Rehearsal buffer</p>
+          <div class="client-weight" id="clientWeight0">w = 0.35</div>
+        </div>
+        <div class="arch-client glass-card" id="archClient1">
+          <div class="arch-node-icon client-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="4" y="4" width="16" height="12" rx="2"/><line x1="8" y1="20" x2="16" y2="20"/>
+              <line x1="12" y1="16" x2="12" y2="20"/>
+            </svg>
+          </div>
+          <h4>Edge Gateway 2</h4>
+          <p>Knowledge distillation + CIL</p>
+          <div class="client-weight" id="clientWeight1">w = 0.13</div>
+        </div>
+        <div class="arch-client glass-card" id="archClient2">
+          <div class="arch-node-icon client-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="4" y="4" width="16" height="12" rx="2"/><line x1="8" y1="20" x2="16" y2="20"/>
+              <line x1="12" y1="16" x2="12" y2="20"/>
+            </svg>
+          </div>
+          <h4>Edge Gateway N</h4>
+          <p>FedProx proximal regularization</p>
+          <div class="client-weight" id="clientWeight2">w = 0.33</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Concepts Cards -->
+    <div class="concepts-grid">
+      <div class="concept-card glass-card">
+        <div class="concept-icon">🔒</div>
+        <h4>Privacy-Preserving</h4>
+        <p>Raw network traffic never leaves the edge node. Only model weight updates (state_dict) are shared with the aggregation server.</p>
+      </div>
+      <div class="concept-card glass-card">
+        <div class="concept-icon">🧠</div>
+        <h4>Class-Incremental Learning</h4>
+        <p>Rehearsal buffers (200 exemplars) and teacher-student distillation preserve knowledge of old attack classes when new threats emerge.</p>
+      </div>
+      <div class="concept-card glass-card">
+        <div class="concept-icon">⚖️</div>
+        <h4>Adaptive Weighting</h4>
+        <p>Unlike FedAvg's uniform averaging, weights are dynamically computed: α·data_size + β·val_score + γ·staleness penalty.</p>
+      </div>
+      <div class="concept-card glass-card">
+        <div class="concept-icon">📡</div>
+        <h4>Communication Efficient</h4>
+        <p>Optional float16 quantization reduces model update transmission by ~50%. Communication bytes logged per round.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ UPLOAD & ANALYZE SECTION ═══════════════ -->
+  <section class="section" id="upload">
+    <div class="section-header-block">
+      <span class="section-tag">Network Analysis</span>
+      <h2 class="section-title">Upload & Analyze Network Traffic</h2>
+      <p class="section-desc">Drop a CSV network flow dataset or PCAP capture to classify traffic using the trained federated global model</p>
+    </div>
+
+    <div class="upload-layout">
+      <!-- Upload Area -->
+      <div class="upload-zone glass-card" id="uploadZone">
+        <div class="upload-zone-inner" id="uploadZoneInner">
+          <div class="upload-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+          </div>
+          <h3>Drag & drop your network file here</h3>
+          <p>Supports <strong>.csv</strong> (network flow datasets) and <strong>.pcap</strong> (packet captures)</p>
+          <div class="upload-or">— or —</div>
+          <label class="btn btn-upload" for="fileInput">
+            Browse Files
+          </label>
+          <input type="file" id="fileInput" accept=".csv,.pcap,.pcapng" hidden>
+          <div class="upload-limits">Max file size: 100 MB</div>
+        </div>
+        <!-- Progress Overlay -->
+        <div class="upload-progress" id="uploadProgress" style="display:none;">
+          <div class="progress-spinner"></div>
+          <p id="uploadProgressText">Analyzing network traffic...</p>
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="uploadProgressBar"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Summary Panel -->
+      <div class="upload-results glass-card" id="uploadResults" style="display:none;">
+        <div class="results-header">
+          <h3>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Analysis Complete
+          </h3>
+          <span class="results-filename" id="resultsFilename"></span>
+        </div>
+        <div class="results-stats-grid">
+          <div class="result-stat">
+            <span class="result-stat-value" id="resultTotal">0</span>
+            <span class="result-stat-label">Records Analyzed</span>
+          </div>
+          <div class="result-stat alert-stat">
+            <span class="result-stat-value" id="resultAlerts">0</span>
+            <span class="result-stat-label">Threats Detected</span>
+          </div>
+          <div class="result-stat">
+            <span class="result-stat-value" id="resultAlertRate">0%</span>
+            <span class="result-stat-label">Alert Rate</span>
+          </div>
+          <div class="result-stat">
+            <span class="result-stat-value" id="resultAvgConf">0%</span>
+            <span class="result-stat-label">Avg Confidence</span>
+          </div>
+        </div>
+        <div class="results-charts-row">
+          <div class="result-chart-box">
+            <h4>Threat Distribution</h4>
+            <div class="result-chart-container"><canvas id="uploadDistChart"></canvas></div>
+          </div>
+          <div class="result-chart-box">
+            <h4>Confidence Histogram</h4>
+            <div class="result-chart-container"><canvas id="uploadConfChart"></canvas></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Upload Results Table -->
+    <div class="upload-table-section glass-card" id="uploadTableSection" style="display:none;">
+      <div class="section-header">
+        <h3>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Classification Results
+        </h3>
+        <span class="badge" id="uploadRecordCount">0 records</span>
+      </div>
+      <div class="table-wrapper">
+        <table class="stream-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Source Info</th>
+              <th>Prediction</th>
+              <th>Confidence</th>
+              <th>Probabilities</th>
+            </tr>
+          </thead>
+          <tbody id="uploadTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ LIVE STREAM SECTION ═══════════════ -->
+  <section class="section" id="live">
+    <div class="section-header-block">
+      <span class="section-tag">Real-Time Detection</span>
+      <h2 class="section-title">Live Telemetry & Threat Detection Stream</h2>
+      <p class="section-desc">Real-time Server-Sent Events stream feeding PCAP packets and curated flows through the trained model</p>
+    </div>
+
+    <!-- Live Controls -->
+    <div class="live-controls glass-card">
+      <div class="control-group">
+        <button id="btnPlayPause" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          Pause Stream
+        </button>
+        <div class="slider-group">
+          <label for="speedSlider">Replay Delay: <span id="delayVal">0.5s</span></label>
+          <input type="range" id="speedSlider" min="0.1" max="2.0" step="0.1" value="0.5">
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="threat-badge" id="liveThreatBadge">
+          <span class="pulse-dot-mini"></span>
+          <span id="liveThreatText">AWAITING STREAM</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Stats Row -->
+    <div class="stats-grid">
+      <div class="stat-card glass-card">
+        <span class="stat-title">Processed</span>
+        <span class="stat-value" id="liveStatProcessed">0</span>
+        <span class="stat-sub">Flows & Packets</span>
+      </div>
+      <div class="stat-card glass-card">
+        <span class="stat-title">Threat Alerts</span>
+        <span class="stat-value threat-color" id="liveStatAlerts">0</span>
+        <span class="stat-sub" id="liveStatAlertRatio">0.0% alert rate</span>
+      </div>
+      <div class="stat-card glass-card">
+        <span class="stat-title">Avg Confidence</span>
+        <span class="stat-value" id="liveStatConf">0.0%</span>
+        <span class="stat-sub">Model certainty</span>
+      </div>
+      <div class="stat-card glass-card">
+        <span class="stat-title">Architecture</span>
+        <span class="stat-value code-font">SimpleNet</span>
+        <span class="stat-sub">Federated Global Model</span>
+      </div>
+    </div>
+
+    <!-- Live Content Grid -->
+    <div class="main-grid">
+      <div class="stream-section glass-card">
+        <div class="section-header">
+          <h3>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Live Packet Stream
+          </h3>
+          <span class="badge" id="liveStreamCounter">0 events</span>
+        </div>
+        <div class="table-wrapper">
+          <table class="stream-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Time</th>
+                <th>Summary</th>
+                <th>Verdict</th>
+                <th>Conf.</th>
+              </tr>
+            </thead>
+            <tbody id="liveTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="charts-section glass-card">
+        <div class="chart-box">
+          <h4>Softmax Output (Current Flow)</h4>
+          <div class="chart-container"><canvas id="liveConfChart"></canvas></div>
+        </div>
+        <div class="chart-box">
+          <h4>Traffic Classification Breakdown</h4>
+          <div class="chart-container"><canvas id="liveDistChart"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ TRAINING INSIGHTS SECTION ═══════════════ -->
+  <section class="section" id="training">
+    <div class="section-header-block">
+      <span class="section-tag">Training Analytics</span>
+      <h2 class="section-title">Federated Training Insights</h2>
+      <p class="section-desc">Metrics from the CIL demo experiment: accuracy curves, aggregation weights, class-incremental forgetting analysis</p>
+    </div>
+
+    <div class="training-grid">
+      <div class="training-chart-card glass-card">
+        <h4>Global Accuracy Over Rounds</h4>
+        <div class="training-chart-container"><canvas id="trainAccChart"></canvas></div>
+      </div>
+      <div class="training-chart-card glass-card">
+        <h4>Macro F1 Score Over Rounds</h4>
+        <div class="training-chart-container"><canvas id="trainF1Chart"></canvas></div>
+      </div>
+      <div class="training-chart-card glass-card">
+        <h4>Adaptive Aggregation Weights (Per Client)</h4>
+        <div class="training-chart-container"><canvas id="trainWeightsChart"></canvas></div>
+      </div>
+      <div class="training-chart-card glass-card">
+        <h4>CIL Stage Metrics — Old vs New Class Accuracy</h4>
+        <div class="training-chart-container"><canvas id="trainCILChart"></canvas></div>
+      </div>
+      <div class="training-chart-card glass-card wide">
+        <h4>Communication Overhead Per Round</h4>
+        <div class="training-chart-container"><canvas id="trainCommChart"></canvas></div>
+      </div>
+      <div class="training-chart-card glass-card wide">
+        <h4>Per-Class Accuracy Heatmap</h4>
+        <div class="training-chart-container"><canvas id="trainClassAccChart"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ COMPARISON SECTION ═══════════════ -->
+  <section class="section" id="comparison">
+    <div class="section-header-block">
+      <span class="section-tag">Method Evaluation</span>
+      <h2 class="section-title">Aggregation Strategy Comparison</h2>
+      <p class="section-desc">Side-by-side evaluation of Adaptive vs FedAvg vs Weighted vs FedProx aggregation strategies</p>
+    </div>
+
+    <div class="comparison-table-container glass-card">
+      <table class="comparison-table" id="comparisonTable">
+        <thead>
+          <tr>
+            <th>Strategy</th>
+            <th>Final Accuracy</th>
+            <th>Final Macro-F1</th>
+            <th>Comm. Bytes/Round</th>
+            <th>Rounds</th>
+          </tr>
+        </thead>
+        <tbody id="comparisonTableBody">
+          <tr><td colspan="5" class="loading-cell">Loading experiment data...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="comparison-charts-grid">
+      <div class="comparison-chart-card glass-card">
+        <h4>Accuracy Comparison Across Strategies</h4>
+        <div class="training-chart-container"><canvas id="compAccChart"></canvas></div>
+      </div>
+      <div class="comparison-chart-card glass-card">
+        <h4>F1 Score Comparison</h4>
+        <div class="training-chart-container"><canvas id="compF1Chart"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="app-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-brand">Adaptive Federated IoT IDS</span>
+        <span class="footer-sep">·</span>
+        <span>Major Project — Federated Class-Incremental Learning</span>
+      </div>
+      <div class="footer-right">
+        <span>PyTorch + Flask + Chart.js</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

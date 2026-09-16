@@ -1,0 +1,20 @@
+{
+  "rounds": [
+    {
+      "round": 0,
+      "global_accuracy": 0.345,
+      "communication_bytes": 113980,
+      "metadata_summary": {
+        "n_clients": 5
+      }
+    },
+    {
+      "round": 1,
+      "global_accuracy": 0.364,
+      "communication_bytes": 113980,
+      "metadata_summary": {
+        "n_clients": 5
+      }
+    }
+  ]
+}

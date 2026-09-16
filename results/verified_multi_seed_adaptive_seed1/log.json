@@ -1,0 +1,82 @@
+{
+  "rounds": [
+    {
+      "round": 0,
+      "global_accuracy": 0.324,
+      "precision_macro": 0.2154710278280072,
+      "recall_macro": 0.33190123456790127,
+      "f1_macro": 0.2598932674079312,
+      "prototype_accuracy": 0.27,
+      "communication_bytes": 113980,
+      "aggregation_weights": [
+        0.22459294497902152,
+        0.20667679323050062,
+        0.1805977229723775,
+        0.18157298451055098,
+        0.20655955430754938
+      ],
+      "class_stage": null,
+      "class_accuracy": {
+        "0": 0.0,
+        "1": 0.5253333333333333,
+        "2": 0.4703703703703704
+      },
+      "stage_metrics": null,
+      "metadata_summary": {
+        "n_clients": 5
+      }
+    },
+    {
+      "round": 1,
+      "global_accuracy": 0.359,
+      "precision_macro": 0.21044454055142525,
+      "recall_macro": 0.33432098765432094,
+      "f1_macro": 0.24091482323883082,
+      "prototype_accuracy": 0.27,
+      "communication_bytes": 113980,
+      "aggregation_weights": [
+        0.2235884898371906,
+        0.20323205421458826,
+        0.17770725512107013,
+        0.17525396296920678,
+        0.22021823785794423
+      ],
+      "class_stage": null,
+      "class_accuracy": {
+        "0": 0.0,
+        "1": 0.84,
+        "2": 0.16296296296296298
+      },
+      "stage_metrics": null,
+      "metadata_summary": {
+        "n_clients": 5
+      }
+    },
+    {
+      "round": 2,
+      "global_accuracy": 0.381,
+      "precision_macro": 0.2437607834560521,
+      "recall_macro": 0.34385185185185185,
+      "f1_macro": 0.2151320649723206,
+      "prototype_accuracy": 0.27,
+      "communication_bytes": 113980,
+      "aggregation_weights": [
+        0.22937129874323833,
+        0.20138471837406383,
+        0.17677415212383188,
+        0.17067504557581772,
+        0.2217947851830482
+      ],
+      "class_stage": null,
+      "class_accuracy": {
+        "0": 0.0,
+        "1": 0.976,
+        "2": 0.05555555555555555
+      },
+      "stage_metrics": null,
+      "metadata_summary": {
+        "n_clients": 5
+      }
+    }
+  ]
+}

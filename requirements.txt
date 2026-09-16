@@ -1,0 +1,11 @@
+torch>=2.0.0
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+tqdm
+pytest
+scapy
+flask
+flask-cors

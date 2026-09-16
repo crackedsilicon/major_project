@@ -1,0 +1,56 @@
+{
+  "rounds": [
+    {
+      "round": 0,
+      "global_accuracy": 0.349,
+      "precision_macro": 0.21353156647274293,
+      "recall_macro": 0.33441975308641975,
+      "f1_macro": 0.2547318673549383,
+      "prototype_accuracy": 0.27,
+      "communication_bytes": 113980,
+      "aggregation_weights": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "class_stage": null,
+      "class_accuracy": {
+        "0": 0.0,
+        "1": 0.744,
+        "2": 0.25925925925925924
+      },
+      "stage_metrics": null,
+      "metadata_summary": {
+        "n_clients": 5
+      }
+    },
+    {
+      "round": 1,
+      "global_accuracy": 0.373,
+      "precision_macro": 0.21609609609609612,
+      "recall_macro": 0.3384691358024692,
+      "f1_macro": 0.21967298402081012,
+      "prototype_accuracy": 0.27,
+      "communication_bytes": 113980,
+      "aggregation_weights": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "class_stage": null,
+      "class_accuracy": {
+        "0": 0.0,
+        "1": 0.9413333333333334,
+        "2": 0.07407407407407407
+      },
+      "stage_metrics": null,
+      "metadata_summary": {
+        "n_clients": 5
+      }
+    }
+  ]
+}

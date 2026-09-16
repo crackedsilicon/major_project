@@ -1,0 +1,23 @@
+{
+  "rounds": [
+    {
+      "round": 0,
+      "global_accuracy": 0.355,
+      "precision_macro": 0.11833333333333333,
+      "recall_macro": 0.3333333333333333,
+      "f1_macro": 0.17466174661746617,
+      "prototype_accuracy": 0.27,
+      "communication_bytes": 113980,
+      "aggregation_weights": [
+        0.1820032994434943,
+        0.2044522886068063,
+        0.2128873858602609,
+        0.22825680998980288,
+        0.17240021609963566
+      ],
+      "metadata_summary": {
+        "n_clients": 5
+      }
+    }
+  ]
+}
